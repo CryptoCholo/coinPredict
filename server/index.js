@@ -1,6 +1,5 @@
 import express from 'express'
-import dotenv from 'dotenv'
-dotenv.config()
+import "dotenv/config.js"
 import MindsDB from 'mindsdb-js-sdk'
 import bodyParser from 'body-parser'
 import  cors from 'cors'
@@ -11,7 +10,7 @@ import  { router as Bnb }  from './models/bnb.js'
 import  { router as Eth}  from './models/eth.js'
 import  { router as Sol}  from './models/sol.js'
 
-
+const PORT = process.env.PORT || 3000;
 
 const app = express();
 
@@ -23,8 +22,8 @@ app.use(cors())
 const connect = async () => {
   try {
     await MindsDB.default.connect({
-      user : 'offorifeanayor@gmail.com',
-      password : 'Buzorcholo21'
+      user : "offorifeanayor@gmail.com",
+      password : "0987654321"
     }).then(() => console.log('connection successful'))
   } catch(error) {
     // Failed to authenticate.
@@ -39,14 +38,6 @@ app.use('/eth', Eth)
 app.use('/sol', Sol)
 
 
-
-
-
-
-app.get('/', (req, res) => {
-
-
-})
 
 //handle undefined routes
 app.use((req, res, next) => {
@@ -67,6 +58,6 @@ app.use((err, req, res, next) => {
 
 
 
-app.listen(4000, (e) => {
-  console.log('listening on port 4000')
+app.listen(PORT, (e) => {
+  console.log(`listening on port ${PORT}`)
 })
