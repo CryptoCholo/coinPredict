@@ -23,7 +23,7 @@ const connect = async () => {
   try {
     await MindsDB.default.connect({
       user : "offorifeanayor@gmail.com",
-      password : "0987654321"
+      password : "Buzorcholo21"
     }).then(() => console.log('connection successful'))
   } catch(error) {
     // Failed to authenticate.
